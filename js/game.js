@@ -182,6 +182,7 @@ class Game {
     checkWinCondition() {
         if (this.playerScore >= this.targetScore || this.aiScore >= this.targetScore) {
             this.state = 'GAME_OVER';
+            this.audioManager.playGameOver();
         }
     }
 
@@ -300,8 +301,8 @@ class Game {
         this.height = newHeight;
 
         // Update component boundaries
-        this.playerPaddle.height = newHeight;
-        this.aiPaddle.height = newHeight;
+        this.playerPaddle.canvasHeight = newHeight;
+        this.aiPaddle.canvasHeight = newHeight;
         this.ball.canvasWidth = newWidth;
         this.ball.canvasHeight = newHeight;
 
